@@ -1,5 +1,7 @@
 FROM ubuntu:18.04
 
+LABEL org.opencontainers.image.source=https://github.com/Tedyst/docker-send-only-postfix
+
 # install packages
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && \
