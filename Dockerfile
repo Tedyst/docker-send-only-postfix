@@ -5,7 +5,7 @@ LABEL org.opencontainers.image.source=https://github.com/Tedyst/docker-send-only
 # install packages
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends supervisor postfix opendkim rsyslog && \
+    apt-get install -y --no-install-recommends supervisor postfix opendkim rsyslog swaks && \
     rm -rf /var/lib/apt/lists/* 
 
 # mail server will be listening on this port
