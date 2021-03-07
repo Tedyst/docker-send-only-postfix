@@ -15,6 +15,11 @@ sed -i ${PATTERN} /etc/postfix/main.cf
 sed -i ${PATTERN} /etc/opendkim/SigningTable
 sed -i ${PATTERN} /etc/opendkim/KeyTable
 
+if [ -f /secret/dkim.key ]; then
+    mkdir -p /etc/opendkim/domainkeys/
+    cp /secret/dkim.key /etc/opendkim/domainkeys/mail.private
+fi
+
 # check the presence of the key for opendkim
 if [ ! -f /etc/opendkim/domainkeys/mail.private ]; then
     echo "Cannot load the 'mail.private' file from '/etc/opendkim/domainkeys/mail.private'. Please mount it as a Docker volume before starting the container."
